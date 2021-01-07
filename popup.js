@@ -20,3 +20,26 @@ scrapeButton.onclick = function(element) {
     }
   }, 3000);
 }
+
+// listening for messages from the scraper.js file
+chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
+  for(index=0; index<response[2]; index++){
+    console.log(response[0][index] + " is due on " + response[1][index]);
+    var textNode = document.createTextNode(response[0][index] + " is due on " + response[1][index]);
+    resultsContainer.appendChild(textNode);
+    resultsContainer.appendChild(document.createElement("BR"));
+
+    // things to check for
+    // - Missing due date
+    // - Missing assignment title
+
+    // things to add
+    // - Class title or abbreviation
+
+    // for the future...
+    // input value for title - required
+    // input value for notes
+    // date picker - required 
+    // time picker
+  }
+});
