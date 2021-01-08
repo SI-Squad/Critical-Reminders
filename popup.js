@@ -49,11 +49,16 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
     var timePicker = document.createElement("INPUT");
     timePicker.setAttribute("type", "time");
 
+    var submitToCalendar = document.createElement("INPUT");
+    submitToCalendar.setAttribute("type", "submit");
+    submitToCalendar.setAttribute("value", "Ship to Calendar ->");
+
+    form.appendChild(document.createElement("HR"));
     form.appendChild(title);
     form.appendChild(description);
     form.appendChild(datePicker);
     form.appendChild(timePicker);
-    form.appendChild(document.createElement("HR"));
+    form.appendChild(submitToCalendar);
 
     resultsContainer.appendChild(form);
 
