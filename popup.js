@@ -25,43 +25,60 @@ scrapeButton.onclick = function(element) {
 chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
   for(index=0; index<response[2]; index++){
     console.log(response[0][index] + " is due on " + response[1][index]);
-    // var textNode = document.createTextNode(response[0][index] + " is due on " + response[1][index]);
-    // resultsContainer.appendChild(textNode);
-    // resultsContainer.appendChild(document.createElement("BR"));
 
 
-    var form = document.createElement("FORM");
+    // make form
+    let form = document.createElement("FORM");
+    function handleForm(event) { event.preventDefault(); }
+    form.addEventListener("submit", handleForm);
 
-    var title = document.createElement("INPUT");
+    // create title input
+    let title = document.createElement("INPUT");
     title.setAttribute("type", "text");
     title.setAttribute("placeholder", "Title");
     title.required;
+    title.setAttribute("class", "form-control");
     title.setAttribute("value", response[0][index]);
 
-    var description = document.createElement("INPUT");
+    // create description input
+    let description = document.createElement("INPUT");
     description.setAttribute("type", "text");
     description.setAttribute("placeholder", "Description");
+    description.setAttribute("class", "form-control");
 
-    var datePicker = document.createElement("INPUT");
+    // create date picker input
+    let datePicker = document.createElement("INPUT");
     datePicker.setAttribute("type", "date");
     datePicker.required;
 
-    var timePicker = document.createElement("INPUT");
+    // create time picker input
+    let timePicker = document.createElement("INPUT");
     timePicker.setAttribute("type", "time");
 
-    var submitToCalendar = document.createElement("INPUT");
+    // create submit button input w/ function to add event to calendar
+    let submitToCalendar = document.createElement("INPUT");
     submitToCalendar.setAttribute("type", "submit");
-    submitToCalendar.setAttribute("value", "Ship to Calendar ->");
+    submitToCalendar.setAttribute("class", "btn btn-primary mb-2");
+    submitToCalendar.setAttribute("value", "Add to Google Calendar");
+    submitToCalendar.onclick = (function(element) { // here is where we'd add the functionality to send the event to the calendar
+      console.log("--- EVENT START ---");
+      console.log("Title: " + title.value);
+      console.log("Description: " + description.value);
+      console.log("Date: " + datePicker.value);
+      console.log("Time: " + timePicker.value);
+    });
 
+
+    // attach the inputs to the form
     form.appendChild(document.createElement("HR"));
     form.appendChild(title);
     form.appendChild(description);
     form.appendChild(datePicker);
     form.appendChild(timePicker);
+    form.appendChild(document.createElement("BR"));
     form.appendChild(submitToCalendar);
 
+    // attach the form to the container
     resultsContainer.appendChild(form);
-
-
   }
 });
