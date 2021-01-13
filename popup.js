@@ -26,7 +26,6 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
   for(index=0; index<response[2]; index++){
     console.log(response[0][index] + " is due on " + response[1][index]);
 
-
     // make form
     let form = document.createElement("FORM");
     function handleForm(event) { event.preventDefault(); }
@@ -49,6 +48,11 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
     // create date picker input
     let datePicker = document.createElement("INPUT");
     datePicker.setAttribute("type", "date");
+    if(response[1][index].length > 6){
+      let longDate = new Date(response[1][index]);
+      let isoDate = longDate.toISOString().substr(0, 10);
+      datePicker.setAttribute("value", isoDate);
+    }
     datePicker.required;
 
     // create time picker input

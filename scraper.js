@@ -20,7 +20,6 @@ for(index=0; index<rowsInTable; index++){
             console.log(assignmentTitle);
             assignmentsTitle.push(assignmentTitle);
         }
-
     }
 
     if(index != 0){
