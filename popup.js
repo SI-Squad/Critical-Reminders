@@ -35,7 +35,7 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
     let title = document.createElement("INPUT");
     title.setAttribute("type", "text");
     title.setAttribute("placeholder", "Title");
-    title.required;
+    title.required = true;
     title.setAttribute("class", "form-control");
     title.setAttribute("value", response[0][index]);
 
@@ -53,10 +53,12 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
       let isoDate = longDate.toISOString().substr(0, 10);
       datePicker.setAttribute("value", isoDate);
     }
-    datePicker.required;
+    datePicker.setAttribute("class", "form-control");
+    datePicker.required = true;
 
     // create time picker input
     let timePicker = document.createElement("INPUT");
+    timePicker.setAttribute("class", "form-control");
     timePicker.setAttribute("type", "time");
 
     // create submit button input w/ function to add event to calendar
