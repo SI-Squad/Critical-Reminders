@@ -49,7 +49,9 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
     let datePicker = document.createElement("INPUT");
     datePicker.setAttribute("type", "date");
     if(response[1][index].length > 6){
-      let longDate = new Date(response[1][index]);
+      let tempDateArray = response[1][index].split(" ");
+      let tempDate = tempDateArray[0] + " " + tempDateArray[1] + " " + tempDateArray[2];
+      let longDate = new Date(tempDate);
       let isoDate = longDate.toISOString().substr(0, 10);
       datePicker.setAttribute("value", isoDate);
     }
