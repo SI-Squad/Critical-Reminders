@@ -22,5 +22,14 @@
       "48": "images/icon-48.png",
       "128": "images/icon-128.png"
     },
+    "commands": {
+      "_execute_page_action": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+I",
+          "mac": "MacCtrl+Shift+I"
+        },
+        "description": "Opens popup.html"
+      }
+    },
     "manifest_version": 2
   }
