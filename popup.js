@@ -24,7 +24,6 @@ scrapeButton.onclick = function(element) {
 // listening for messages from the scraper.js file
 chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
   for(index=0; index<response[2]; index++){
-    console.log(response[0][index] + " is due on " + response[1][index]);
 
     // make form
     let form = document.createElement("FORM");
@@ -62,6 +61,7 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
     let timePicker = document.createElement("INPUT");
     timePicker.setAttribute("class", "form-control");
     timePicker.setAttribute("type", "time");
+
 
     // create submit button input w/ function to add event to calendar
     let submitToCalendar = document.createElement("INPUT");
