@@ -74,6 +74,8 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
       console.log("Description: " + description.value);
       console.log("Date: " + datePicker.value);
       console.log("Time: " + timePicker.value);
+      form.classList.add('horizontalTranslationForm');
+      setTimeout(function(){ form.remove(); }, 1500);
     });
 
 

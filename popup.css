@@ -24,3 +24,12 @@ body {
     margin: 10px auto;
     display: none;
 }
+
+.horizontalTranslationForm {
+    -webkit-transition: 1.5s;
+    -moz-transition: 1.5s;
+    -ms-transition: 1.5s;
+    -o-transition: 1.5s;
+    transition: 1.5s;
+    margin-left: 150% !important;
+  }
