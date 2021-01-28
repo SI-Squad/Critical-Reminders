@@ -15,8 +15,9 @@ scrapeButton.onclick = function(element) {
   // If no results are retrieved in 3 seconds, display message
   setTimeout(function(){ 
     spinner.style.display = 'none';
-    if (!resultsContainer.hasChildNodes) { 
-      resultsContainer.hasChildNodes = 'No results were found. Go to the Assignments tab or the Quizzes tab to retrieve deadlines';
+    console.log(resultsContainer);
+    if (!resultsContainer.hasChildNodes()) { 
+      resultsContainer.innerHTML = 'No results were found. Go to the Assignments tab or the Quizzes tab to retrieve deadlines';
     }
   }, 3000);
 }
@@ -32,6 +33,7 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
 
     // create title input
     let title = document.createElement("INPUT");
+    title.setAttribute("id", "title-" + index.toString());
     title.setAttribute("type", "text");
     title.setAttribute("placeholder", "Title");
     title.required = true;
@@ -40,12 +42,14 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
 
     // create description input
     let description = document.createElement("INPUT");
+    description.setAttribute("id", "description-" + index.toString())
     description.setAttribute("type", "text");
     description.setAttribute("placeholder", "Description");
     description.setAttribute("class", "form-control");
 
     // create date picker input
     let datePicker = document.createElement("INPUT");
+    datePicker.setAttribute("id", "date-" + index.toString())
     datePicker.setAttribute("type", "date");
     if(response[1][index].length > 6){
       let tempDateArray = response[1][index].split(" ");
@@ -59,23 +63,29 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
 
     // create time picker input
     let timePicker = document.createElement("INPUT");
+    timePicker.setAttribute("id", "time-" + index.toString());
     timePicker.setAttribute("class", "form-control");
     timePicker.setAttribute("type", "time");
 
 
     // create submit button input w/ function to add event to calendar
     let submitToCalendar = document.createElement("INPUT");
+    submitToCalendar.setAttribute("data-index", index);
     submitToCalendar.setAttribute("type", "submit");
     submitToCalendar.setAttribute("class", "btn btn-primary mb-2");
-    submitToCalendar.setAttribute("value", "Add to Google Calendar");
-    submitToCalendar.onclick = (function(element) { // here is where we'd add the functionality to send the event to the calendar
+    submitToCalendar.setAttribute("value", "Add this Event");
+    submitToCalendar.onclick = (function(e) { // here is where we'd add the functionality to send the event to the calendar
       console.log("--- EVENT START ---");
       console.log("Title: " + title.value);
       console.log("Description: " + description.value);
       console.log("Date: " + datePicker.value);
       console.log("Time: " + timePicker.value);
-      form.classList.add('horizontalTranslationForm');
-      setTimeout(function(){ form.remove(); }, 1500);
+      const titleElement = document.getElementById("title-" + e.toElement.dataset.index.toString());
+      const dateElement = document.getElementById("date-" + e.toElement.dataset.index.toString())
+      if (titleElement.value && dateElement.value) {
+        form.classList.add('horizontalTranslationForm');
+        setTimeout(function(){ form.remove(); }, 1000);
+      }
     });
 
 
@@ -90,5 +100,6 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
 
     // attach the form to the container
     resultsContainer.appendChild(form);
+    spinner.style.display = 'none';
   }
 });

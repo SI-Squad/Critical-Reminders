@@ -8,18 +8,18 @@
   </head>
   <body>
     <div id="title-container">
-      <h1 class="display-4">Zoom-a-loom</h1>
+      <h1 class="display-4">C<strong>rit</strong>ical Reminders</h1>
     </div>
     <div id="content-container">
       <p class="lead">
-        Automatically add deadlines to your Google Calendar
+        Automatically find deadlines on MyCourses and download reminders for your calendar
       </p>
       <button type="button" id="scrape-button" class="btn btn-primary">Find Deadlines</button>
       <div class="spinner-border text-primary" id="spinner" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
       <div id="results"></div>
-      <button id="download-button">Download Events</button>
+      <button id="download-button" class="btn btn-success" disabled>Download Events</button>
     </div>
     <script src="FileSaver.js"></script>
     <script src="Blob.js"></script>

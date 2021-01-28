@@ -1,35 +1,40 @@
 body {
-    min-width: 300px;
+  min-width: 300px;
 }
 
 #title-container {
-    padding: 5px;
-    background-color: #0d6efd;
-    color: white;
+  padding: 5px;
+  background-color: #0d6efd;
+  color: white;
 }
 
 #title-container h1 {
-    margin: 0 5px;
+  margin: 0 5px;
 }
 
 #content-container {
-    margin: 10px;
+  margin: 10px;
 }
 
 #scrape-button {
-    margin: 3px 0;
+  margin: 3px 0;
+}
+
+#download-button {
+  display: none;
 }
 
 #spinner {
-    margin: 10px auto;
-    display: none;
+  margin: 10px auto;
+  display: none;
 }
 
 .horizontalTranslationForm {
-    -webkit-transition: 1.5s;
-    -moz-transition: 1.5s;
-    -ms-transition: 1.5s;
-    -o-transition: 1.5s;
-    transition: 1.5s;
-    margin-left: 150% !important;
-  }
+  -webkit-transition: 1.3s;
+  -moz-transition: 1.3s;
+  -ms-transition: 1.3s;
+  -o-transition: 1.3s;
+  transition: 1.3s;
+  opacity: 0%;
+  margin-left: 150% !important;
+}
