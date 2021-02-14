@@ -1,5 +1,4 @@
 let scrapeButton = document.getElementById('scrape-button');
-let signInButton = document.getElementById('sign_in_button');
 let resultsContainer = document.getElementById('results');
 
 scrapeButton.onclick = function(element) {
@@ -86,11 +85,6 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
         let dateFormat = datePicker.value.split("-");
         dateFormat = dateFormat[1]+"/"+dateFormat[2]+"/"+dateFormat[0];
         calendar.addEvent(title.value, description.value, "", dateFormat, dateFormat);
-        console.log("--- EVENT START ---");
-        console.log("Title: " + title.value);
-        console.log("Description: " + description.value);
-        console.log("Date: " + datePicker.value);
-        console.log("Time: " + timePicker.value);
         const titleElement = document.getElementById("title-" + e.toElement.dataset.index.toString());
         const dateElement = document.getElementById("date-" + e.toElement.dataset.index.toString())
         if (titleElement.value && dateElement.value) {
