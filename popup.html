@@ -8,25 +8,31 @@
   </head>
   <body>
     <div id="title-container">
-      <h1 class="display-4">Zoom-a-loom</h1>
+      <h1 class="display-4">C<strong>rit</strong>ical Reminders</h1>
     </div>
     <div id="content-container">
       <p class="lead">
-        Automatically add deadlines to your Google Calendar
+        Automatically find deadlines on MyCourses and download reminders for your calendar
       </p>
-      <button id="sign_in_button" >Sign in</button>
-      <button id="authorize_button" >Authorize</button>
-      <button id="signout_button" >Sign Out</button>
-      <button id="add_event_button" >Add Event</button>
+      <p class="lead">
+        <div><a target="_blank" href="https://www.calendar.com/yahoo-calendar-guide/#Importing%20Your%20Calendar:~:text=Click%20the%20box%20and%20Google,iCal%20files%20are%20the%20same.">Add to Yahoo Calendar</a></div>
+        <div><a target="_blank" href="https://support.google.com/calendar/answer/37118?co=GENIE.Platform%3DDesktop&hl=en">Add to Google Calendar</a></div>
+        <div><a target="_blank" href="https://support.apple.com/guide/calendar/import-or-export-calendars-icl1023/mac">Add to Apple Calendar</a></div>
+        <div><a target="_blank" href="https://support.microsoft.com/en-us/office/import-calendars-into-outlook-8e8364e1-400e-4c0f-a573-fe76b5a2d379">Add to Microsoft Outlook</a></div>
+        <div><a target="_blank" href="https://support.mozilla.org/en-US/questions/1105153#answer-832476">Add to Mozilla Thunderbird</a></div>
+      </p>
       <button type="button" id="scrape-button" class="btn btn-primary">Find Deadlines</button>
       <div class="spinner-border text-primary" id="spinner" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
+      <div id="errors" class="text-danger"></div>
       <div id="results"></div>
-<pre id="content" style="white-space: pre-wrap;"></pre>
+      <button id="download-button" class="btn btn-primary">Download Events</button>
     </div>
-    <script src="https://apis.google.com/js/platform.js"></script>
-    <script src="eventMaker.js"></script>
+    <script src="FileSaver.js"></script>
+    <script src="Blob.js"></script>
+    <script src="ics.js"></script>
+    <script src="ics-generator.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>
