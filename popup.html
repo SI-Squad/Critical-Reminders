@@ -14,12 +14,19 @@
       <p class="lead">
         Automatically add deadlines to your Google Calendar
       </p>
+      <button id="sign_in_button" >Sign in</button>
+      <button id="authorize_button" >Authorize</button>
+      <button id="signout_button" >Sign Out</button>
+      <button id="add_event_button" >Add Event</button>
       <button type="button" id="scrape-button" class="btn btn-primary">Find Deadlines</button>
       <div class="spinner-border text-primary" id="spinner" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
       <div id="results"></div>
+<pre id="content" style="white-space: pre-wrap;"></pre>
     </div>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="eventMaker.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

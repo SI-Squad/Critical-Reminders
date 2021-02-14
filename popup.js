@@ -1,4 +1,5 @@
 let scrapeButton = document.getElementById('scrape-button');
+let signInButton = document.getElementById('sign_in_button');
 let resultsContainer = document.getElementById('results');
 
 scrapeButton.onclick = function(element) {
@@ -19,4 +20,8 @@ scrapeButton.onclick = function(element) {
       resultsContainer.textContent = 'No results were found. Go to the Assignments tab or the Quizzes tab to retrieve deadlines';
     }
   }, 3000);
+}
+
+signInButton.onclick = function(element){
+  handleClientLoad();
 }
