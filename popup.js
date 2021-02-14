@@ -83,6 +83,9 @@ chrome.runtime.onMessage.addListener(function(response, sender, sendResponse){
       submitToCalendar.setAttribute("class", "btn btn-success mb-2");
       submitToCalendar.setAttribute("value", "Add this Event");
       submitToCalendar.onclick = (function(e) { // here is where we'd add the functionality to send the event to the calendar
+        let dateFormat = datePicker.value.split("-");
+        dateFormat = dateFormat[1]+"/"+dateFormat[2]+"/"+dateFormat[0];
+        calendar.addEvent(title.value, description.value, "", dateFormat, dateFormat);
         console.log("--- EVENT START ---");
         console.log("Title: " + title.value);
         console.log("Description: " + description.value);
