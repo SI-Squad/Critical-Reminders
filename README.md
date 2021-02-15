@@ -16,7 +16,7 @@ Our tool is meant for RIT students to quickly and easily add homework, quizzes, 
 
 6. (optional, but useful) In the top right of your browser, click on the puzzle piece icon. In this popup, find the Critical Reminders extension and click the push pin on the right (make sure it is blue).
 
-![Pinning the extension to the browser][https://github.com/SI-Squad/Zoom-a-loom/blob/master/images/ExtensionPin.png]
+![Pinning the extension to the browser](https://github.com/SI-Squad/Zoom-a-loom/blob/master/images/ExtensionPin.png)
 
 ## Running the Extension
 
