@@ -24,6 +24,10 @@ body {
   display: none;
 }
 
+#help-links {
+  display: none;
+}
+
 #spinner {
   margin: 10px auto;
   display: none;
